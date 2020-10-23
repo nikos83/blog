@@ -8,7 +8,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
-
+Post.destroy_all
 30.times do
   Post.create!(title: Faker::Beer.name, content: Faker::Beer.style, status: %w[draft published rejected].sample)
 end
