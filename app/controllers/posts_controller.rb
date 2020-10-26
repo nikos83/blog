@@ -62,9 +62,9 @@ class PostsController < ApplicationController
   end
 
   def publish
-    post = Post.find(params[:id])
-    post.update(status: 'published')
-    redirect_to posts_path, notice: 'Post published'
+    @post = Post.find(params[:id])
+    @post.update(status: 'published')
+    # redirect_to posts_path, notice: 'Post published'
     respond_to do |format|
       format.js
     end

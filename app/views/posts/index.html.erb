@@ -13,11 +13,7 @@
   </thead>
 
   <tbody>
-    <% @posts.each do |post| %>
-      <div class='list_of_posts'>
-        <%= render 'post', post: post %>
-      </div>
-    <% end %>
+    <%= render partial: @posts %>
   </tbody>
 </table>
 
