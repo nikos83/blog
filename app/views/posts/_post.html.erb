@@ -1,8 +1,9 @@
+  <% post_presenter = PostPresenter.new %>
   <tr id="<%= post.id %>">
     <td><%= post.title %></td>
     <td><%= post.content %></td>
     <td><%= post.status %></td>
-    <td><%= link_to 'Publish', publish_post_path(post), method: :post, remote: true %></td>
+    <td><%= link_to 'Publish', publish_post_path(post), method: :post, remote: true, style: post_presenter.publish(post) %></td>
     <td><%= link_to 'Show', post %></td>
     <td><%= link_to 'Edit', edit_post_path(post) %></td>
     <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
