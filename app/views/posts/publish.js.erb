@@ -1,2 +1,2 @@
-$('#<%= @post.id %>').replaceWith('<%= escape_javascript(render @post) %>');
+$('#<%= @post.id %>').replaceWith('<%= escape_javascript(render "posts/post", post: @post, presenter: @presenter ) %>');
 $('#notice').append('Post published!');
