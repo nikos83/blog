@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
+  root to: 'posts#index'
   resources :posts do
-    member do 
+    member do
       post 'publish'
     end
   end
