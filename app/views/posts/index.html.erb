@@ -13,11 +13,12 @@
   </thead>
 
   <tbody>
-    <%= render partial: @posts %>
+    <%= render partial: 'posts/post', collection: resources,
+           as: :post, locals: {presenter: presenter} %>
   </tbody>
 </table>
 
 <br>
-<%== pagy_bootstrap_nav(@pagy) %>
+<%# <%== pagy_bootstrap_nav(pagy_data) %> %>
 
 <%= link_to 'New Post', new_post_path %>

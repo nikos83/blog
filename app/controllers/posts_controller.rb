@@ -6,7 +6,11 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @pagy, @posts = pagy(Post.all)
+    render :index, locals: {
+      resources: Post.all,
+      presenter: PostPresenter.new,
+      pagy_data: pagy(Post.all)
+    }
   end
 
   # GET /posts/1
@@ -64,6 +68,7 @@ class PostsController < ApplicationController
   def publish
     @post = Post.find(params[:id])
     @post.update(status: 'published')
+    @presenter = PostPresenter.new
     # redirect_to posts_path, notice: 'Post published'
     respond_to do |format|
       format.js
@@ -72,6 +77,7 @@ class PostsController < ApplicationController
 
   private
 
+  attr_reader :post
   # Use callbacks to share common setup or constraints between actions.
   def set_post
     @post = Post.find(params[:id])
