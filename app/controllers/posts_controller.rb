@@ -7,6 +7,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @pagy, @posts = pagy(Post.all)
+    @post = Post.new
   end
 
   # GET /posts/1
@@ -68,6 +69,12 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.js
     end
+  end
+
+  def import_posts
+    binding.pry
+    imported_posts = ::PostImportService.new(params[:import_posts]).call
+    redirect_to posts_path, notice: 'Posts imported'
   end
 
   private
