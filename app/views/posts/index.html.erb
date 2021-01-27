@@ -22,7 +22,7 @@
 
 <%= link_to 'New Post', new_post_path %>
 <h1> import posts</h1>
-<%= form_for @post, url: import_posts_posts_path,  html: { multipart: true } do |f| %>
-    <%= f.file_field :import_posts %>
-    <%= f.submit "upload csv", class: "btn" %>
+<%= form_with url: import_posts_posts_path do |form| %>
+  <%= form.file_field :import_posts %>
+  <%= form.submit %>
 <% end %>
