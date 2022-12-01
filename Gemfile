@@ -10,6 +10,7 @@ gem 'carrierwave', '~> 2.0'
 gem 'faker'
 gem 'pry', '~> 0.13.1'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.1'
+gem 'figaro'
 # Use postgresql as the database for Active Record
 gem 'pagy', '~> 3.5'
 gem 'pg', '>= 0.18', '< 2.0'
