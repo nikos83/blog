@@ -70,6 +70,11 @@ class PostsController < ApplicationController
     end
   end
 
+  def import_posts
+    imported_posts = ::PostImportService.new(params[:import_posts]).call
+    redirect_to posts_path, notice: 'Posts imported'
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
